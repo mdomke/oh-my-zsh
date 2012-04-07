@@ -8,7 +8,6 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="wedisagree"
 #ZSH_THEME="pygmalion"
 #ZSH_THEME="terminalparty"
-#ZSH_THEME="tjkirch"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -32,11 +31,9 @@ ZSH_THEME="wedisagree"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx brew)
+plugins=(git osx brew vi-mode python pip autojump)
 
 source $ZSH/oh-my-zsh.sh
-
-bindkey -v
 
 # Configure the terminal appearance
 export DISPLAY=:0.0
