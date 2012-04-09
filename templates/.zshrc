@@ -75,3 +75,22 @@ export PKG_CONFIG_PATH
 export LC_ALL=''
 export LC_CTYPE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
+
+alias -s py=${EDITOR}
+alias -s clj=${EDITOR}
+alias -s c=${EDITOR}
+alias -s cpp=${EDITOR}
+alias -s tex=${EDITOR}
+alias -s tgz=tar xzvf
+alias -s tbz=tar xjvf
+
+alias -g L='|less'
+alias -g G='|grep'
+
+alias mx='chmod u+x'
+alias la='ls -a'
+alias psa='ps aux'
+alias pg='psa G -v grep G'
+alias isodate='date "+%Y-%m-%d"'
+alias mdu='du -kh'
+alias mdf='df -kh'
