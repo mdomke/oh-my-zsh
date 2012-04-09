@@ -10,8 +10,7 @@ ZSH_THEME="wedisagree"
 #ZSH_THEME="terminalparty"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -26,14 +25,26 @@ ZSH_THEME="wedisagree"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx brew vi-mode python pip autojump)
+plugins=(git 
+git-flow 
+extract 
+history-substring-search 
+lein 
+osx 
+brew 
+vi-mode 
+python 
+pip 
+autojump)
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U zmv
 
 # Configure the terminal appearance
 export DISPLAY=:0.0
@@ -41,17 +52,19 @@ export EDITOR='vim'
 export SVN_EDITOR=${EDITOR}
 export CVSEDITOR=${EDITOR}
 
-
-# Configure the application's search PATH
-PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
-PATH="${PATH}:${PYTHON_PACKAGES}"
-PATH="${PATH}:${RUBY_GEMS}"
-PATH="${PATH}:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/i386"
-PATH="${PATH}:/Developer/Tools"
-PATH="${PATH}:/usr/local/metasploit"
-
 PYTHONPATH="${PYTHON_PACKAGES}:${PYTHONPATH}"
 PYTHON_PACKAGES="/usr/local/share/python"
+
+# Configure the application's search PATH
+path=(
+"/usr/local/bin"
+"/usr/local/sbin"
+${(@)path}
+${PYTHON_PACKAGES}
+${RUBY_GEMS}
+"/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/i386"
+"/usr/local/metasploit")
+
 RUBY_GEMS="$(brew --prefix ruby)/bin"
 
 export PATH
