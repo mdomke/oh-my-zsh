@@ -52,20 +52,30 @@ export EDITOR='vim'
 export SVN_EDITOR=${EDITOR}
 export CVSEDITOR=${EDITOR}
 
-PYTHONPATH="${PYTHON_PACKAGES}:${PYTHONPATH}"
-PYTHON_PACKAGES="/usr/local/share/python"
 
 # Configure the application's search PATH
 path=(
 "/usr/local/bin"
 "/usr/local/sbin"
 ${(@)path}
-${PYTHON_PACKAGES}
-${RUBY_GEMS}
-"/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/i386"
-"/usr/local/metasploit")
+)
 
-RUBY_GEMS="$(brew --prefix ruby)/bin"
+TETEX_HOME="/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/i386"
+test -d ${TETEX_HOME} && path+=(${TETEX_HOME})
+
+METASPLOIT_HOME="/usr/local/metasploit"
+test -d ${METASPLOIT_HOME} && path+=(${METASPLOIT_HOME})
+
+if [ $(command -v brew) ]; then
+    RUBY_GEMS="$(brew --prefix ruby)/bin"
+    path+=(${RUBY_GEMS})
+fi
+
+PYTHON_PACKAGES="/usr/local/share/python"
+if [ -d ${PYTHON_PACKAGES} ]; then
+    pythonpath=(${PYTHON_PACKAGES} ${PYTHONPATH})
+    path+=(${PYTHON_PACKAGES})
+fi
 
 export PATH
 export PYTHONPATH
@@ -76,8 +86,6 @@ export LC_ALL=''
 export LC_CTYPE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 
-alias -s py=${EDITOR}
-alias -s clj=${EDITOR}
 alias -s c=${EDITOR}
 alias -s cpp=${EDITOR}
 alias -s tex=${EDITOR}
