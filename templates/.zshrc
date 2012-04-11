@@ -52,20 +52,18 @@ export EDITOR='vim'
 export SVN_EDITOR=${EDITOR}
 export CVSEDITOR=${EDITOR}
 
-PYTHONPATH="${PYTHON_PACKAGES}:${PYTHONPATH}"
 PYTHON_PACKAGES="/usr/local/share/python"
+PYTHONPATH="${PYTHON_PACKAGES}:${PYTHONPATH}"
 
 # Configure the application's search PATH
 path=(
 "/usr/local/bin"
 "/usr/local/sbin"
+"${HOME}/bin/eclipse"
 ${(@)path}
 ${PYTHON_PACKAGES}
-${RUBY_GEMS}
 "/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/i386"
 "/usr/local/metasploit")
-
-RUBY_GEMS="$(brew --prefix ruby)/bin"
 
 export PATH
 export PYTHONPATH
@@ -94,3 +92,4 @@ alias pg='psa G -v grep G'
 alias isodate='date "+%Y-%m-%d"'
 alias mdu='du -kh'
 alias mdf='df -kh'
+alias testenv='source ${HOME}/Source/test-env/bin/activate'
