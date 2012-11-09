@@ -9,7 +9,7 @@ DEFAULT_USER="mdomke"
 #ZSH_THEME="wedisagree"
 #ZSH_THEME="pygmalion"
 #ZSH_THEME="terminalparty"
-ZSH_THEME="agnoster"
+ZSH_THEME="mdomke"
 
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
@@ -37,7 +37,7 @@ git
 git-flow 
 cloudapp
 extract 
-history-substring-search 
+#history-substring-search 
 lein 
 osx 
 debian
@@ -49,9 +49,11 @@ autojump
 vundle
 virtualenvwrapper
 encode64
+url-tools
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/Source/private/resty/resty
 
 autoload -U zmv
 unsetopt correct_all
@@ -106,11 +108,12 @@ alias -s tex=${EDITOR}
 alias -s tgz=tar xzvf
 alias -s tbz=tar xjvf
 
-alias -g L='|less'
-alias -g G='|grep'
+#alias -g L='|less'
+#alias -g G='|grep'
 
 alias mx='chmod u+x'
 alias la='ls -a'
+alias fname='find . -name'
 alias psa='ps aux'
 alias pg='psa G -v grep G'
 alias isodate='date "+%Y-%m-%d"'
@@ -125,16 +128,17 @@ alias gitm='gitg 2&> /dev/null &'
 
 alias bci='ssh user@backend-ci'
 alias testctrl='ssh vmuser@10.106.58.199'
-alias gfw='ssh support@10.0.2.10'
-alias gswi0='ssh root@10.106.149.200'
-alias gswi1='ssh root@10.106.149.201'
-alias gswi2='ssh root@10.106.149.202'
-alias gswi3='ssh root@10.106.149.203'
-alias gswi4='ssh root@10.106.149.204'
 alias fw='ssh support@10.106.149.1'
-alias swi0='ssh root@10.0.2.11'
-alias swi1='ssh root@10.0.2.12'
-alias swi2='ssh root@10.0.2.13'
-alias swi3='ssh root@10.0.2.14'
-alias swi4='ssh root@10.0.2.15'
-alias swi5='ssh root@10.0.2.16'
+alias swi0='ssh root@10.106.149.10'
+alias swi1='ssh root@10.106.149.11'
+alias swi2='ssh root@10.106.149.12'
+alias swi3='ssh root@10.106.149.13'
+alias swi4='ssh root@10.106.149.14'
+
+alias gfw='ssh support@10.0.2.10'
+alias gswi0='ssh root@10.0.2.11'
+alias gswi1='ssh root@10.0.2.12'
+alias gswi2='ssh root@10.0.2.13'
+alias gswi3='ssh root@10.0.2.14'
+alias gswi4='ssh root@10.0.2.15'
+alias gswi5='ssh root@10.0.2.16'
